@@ -1,6 +1,4 @@
-﻿Console.Clear();
-
-int InputNum (string message)
+﻿int InputNum(string message)
 {
     Console.Write(message);
     return Convert.ToInt32(Console.ReadLine());
@@ -13,14 +11,13 @@ double[,] SetArray2Double(int line, int column)
     {
         for (int j = 0; j < column; j++)
         {
-            numArr2D[i, j] = new Random().Next(0, 100);
+            numArr2D[i, j] = new Random().Next(0, 100) + new Random().NextDouble();
             numArr2D[i, j] = Math.Round(numArr2D[i, j], 2);
         }
     }
     return numArr2D;
 }
-
-void PrintArray2Double (double[,] array2D)
+void PrintArray2Double(double[,] array2D)
 {
     for (int i = 0; i < array2D.GetLength(0); i++)
     {
@@ -32,10 +29,10 @@ void PrintArray2Double (double[,] array2D)
     }
 }
 
-int m = InputNum ("Enter strings: ");
-int n = InputNum ("Enter columns; ");
+int m = InputNum("Задайте кол-во строк: ");
+int n = InputNum("Задайте кол-во столбцов: ");
 
 double[,] array = SetArray2Double(m, n);
 
-Console.WriteLine($"Your massive {m}x{n}: ");
+Console.WriteLine($"Ваш массив {m}x{n}:");
 PrintArray2Double(array);
